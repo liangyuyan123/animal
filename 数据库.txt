@@ -1,0 +1,10 @@
+ltable 1:
+
+用户表：id   name   password   type   email  telphone  address   
+产品表：id   name   price  account  description   image   type
+订单表：id   customerId  productId  account   totalPrice   status   
+讨论表：id   talkId   title     type   content   customerId
+意见表：id  content  opinionId  type(原始内容、回复内容)  customerId
+售后表：
+积分表：
+打折商品：
