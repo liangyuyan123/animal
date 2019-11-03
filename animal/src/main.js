@@ -11,12 +11,13 @@ import 'iview/dist/styles/iview.css';
 //axios
 import VueAxios from 'vue-axios';
 import axios from 'axios'
-// import api from './api/global.js'
+import api from './api/global.js'
 // 将API方法绑定到全局
-// Vue.prototype.$api = api
+Vue.prototype.$api = api
 
 //vuex
-// import store from './vuex/store.js'
+import Vuex from 'vuex'
+Vue.use(Vuex)
 
 Vue.config.productionTip = false
 
