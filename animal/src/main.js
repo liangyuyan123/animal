@@ -8,6 +8,10 @@ import router from './router'
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 
+import { Modal,Message } from 'iview'
+Vue.component('Modal', Modal)
+Vue.component('Message', Message)
+
 //axios
 import VueAxios from 'vue-axios';
 import axios from 'axios'

@@ -20,7 +20,7 @@ public class UserController {
        return String.valueOf(isSucces);
     }
 
-    @RequestMapping("/user/login")
+    @RequestMapping(value = "/user/login",method = RequestMethod.GET)
     public User loginUser(@RequestParam("un") String userName ,
                             @RequestParam("pwd") String password,
                             @RequestParam("ut") String userType){
