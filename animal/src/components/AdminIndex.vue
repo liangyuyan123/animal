@@ -137,9 +137,6 @@
     // this.$store.dispatch('findAllLesson');
     // this.$store.dispatch('findAllClass');
     this.$router.push('/Test'); //跳转到指定页面
-
-
-
     },
 
     methods: {

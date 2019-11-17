@@ -21,6 +21,25 @@
     from product
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+  <select id="selectAll"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from product
+  </select>
+
+  <select id="selectByType" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from product
+    where product_type=#{product_type}
+  </select>
+
+  <delete id="deleteById" parameterType="java.lang.Integer">
+    delete from product
+    where id = #{id}
+  </delete>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from product
     where id = #{id,jdbcType=INTEGER}
@@ -115,7 +134,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.liangyuyan.animal.domain.Product">
+  <update id="updateById" parameterType="com.liangyuyan.animal.domain.Product">
     update product
     set product_name = #{productName,jdbcType=VARCHAR},
       product_price = #{productPrice,jdbcType=DECIMAL},
