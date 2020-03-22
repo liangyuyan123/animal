@@ -2,6 +2,7 @@ package com.liangyuyan.animal.controller;
 
 import com.liangyuyan.animal.domain.Product;
 import com.liangyuyan.animal.service.ProductService;
+import org.apache.commons.codec.binary.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,19 @@ public class ProductController {
     @RequestMapping("/product/selectAll")
     public List<Product> selectAll(){
         List<Product> productList=productService.selectAll();
+        return productList;
+    }
+    @RequestMapping("/product/selectAll2")
+    public List<Product> selectAll2(){
+        List<Product> productList=productService.selectAll();
+        for (Product product : productList) {
+            if (null != product.getProductImage() && product.getProductImage().equals("")){
+                String image = product.getProductImage();
+                StringBuffer prefix = new StringBuffer("/images/content/");
+                image.substring(image.indexOf("static/")+1);
+                product.setProductImage(prefix.append(image).toString());
+            }
+        }
         return productList;
     }
     @RequestMapping("/product/selectByType")

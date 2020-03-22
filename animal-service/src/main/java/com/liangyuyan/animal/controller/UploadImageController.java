@@ -19,6 +19,7 @@ public class UploadImageController {
         String uploadPath="";
         if (file!=null) {// 判断上传的文件是否为空
             String path=null;// 文件路径
+            String path2=null;// 文件路径2
             String showPath = null; //显示路径
             String type=null;// 文件类型
             String fileName=file.getOriginalFilename();// 文件原名称
@@ -29,10 +30,12 @@ public class UploadImageController {
                 if ("GIF".equals(type.toUpperCase())||"PNG".equals(type.toUpperCase())||"JPG".equals(type.toUpperCase())) {
                     // 项目在容器中实际发布运行的根路径
                     String realPath="D:\\animal\\animal\\animal\\static\\";
+                    String realPath2="D:\\学习资料\\myPet\\images\\content\\";
                     // 自定义的文件名称
                     String trueFileName=String.valueOf(System.currentTimeMillis())+fileName;
                     // 设置存放图片文件的路径
                     path=realPath+trueFileName;
+                    path2=realPath2+trueFileName;
                     showPath="../../static/"+trueFileName;
 
                     System.out.println("存放图片文件的路径:"+path);
@@ -40,6 +43,7 @@ public class UploadImageController {
 
                     try {
                         file.transferTo(new File(path));
+                        file.transferTo(new File(path2));
                     } catch (IOException e) {
                         e.printStackTrace();
                         return null;
